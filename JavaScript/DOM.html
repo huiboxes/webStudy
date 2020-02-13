@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div class="cls"></div>
+    <div class="cls"></div>
+    <input type="text" value="username" />
+    <a href="">点我试试</a>
+    <input type="button" value="设置属性" id="seta" />
+    <input type="button" value="删除属性" />
+    <div id="div4">
+      <div id="div5">div</div>
+    </div>
+    <button>删除div</button>
+    <div id="sty1">修改样式</div>
+    <script>
+      // DOM 文档对象模型
+      // 讲标记语言文档的各个组成部分封装成对象
+      // 使用对象对文档进行CRUD的动态操作
+      /*
+        核心DOM 针对任何结构化文档的标准模型
+        Document 文档对象
+        Element 元素对象
+        Attribute 属性对象
+        Comment 注释对象
+
+        Node 几点对象   上面5个的父对象
+
+        XML DOM  针对XML文档的标准模型
+        HTML DOM   最对HTML 文档的标准模型
+        */
+      /*
+        1、获取Element对象
+        getElementById
+        getElementsByTagName
+        getElementsByClassName
+        getElementsByName
+
+        2、创建其他DOM方法
+        createAttribute(name)
+        createComment()
+        createElement()
+        createTextNode()
+
+        Node节点  
+            所有DOM对象都可以被认为是一个节点
+            CRUD DOM树
+                appendChild()
+                removeChild()
+                replaceChild()
+
+        */
+      var divs = document.getElementsByTagName("div");
+      // alert(divs)
+      var div1 = document.getElementById("div1");
+      // alert(div1)
+      var cls = document.getElementsByClassName("cls");
+      // alert(cls)
+      var username = document.getElementsByName("username");
+      // alert(username)
+      var table = document.createElement("table");
+      // alert(table)
+      var element_a = document.getElementsByTagName("a")[0];
+      var seta = document.getElementById("seta");
+      seta.onclick = function() {
+        element_a.setAttribute("href", "https://www.baidu.com");
+      };
+      var remove = document.getElementsByName("删除属性");
+      remove.onclick = function() {
+        element_a.removeAttribute("href");
+      };
+      var div4 = document.getElementById("div4");
+      var div5 = document.getElementById("div5");
+      var body = document.getElementsByTagName("body");
+      var reNode = document.getElementsByTagName("button")[0];
+      reNode.onclick = function() {
+        div4.removeChild(div5);
+      };
+      var sty = document.getElementById("sty1")
+      sty.onclick = function(){sty.style.border = "1px solid blue"}
+    </script>
+  </body>
+</html>

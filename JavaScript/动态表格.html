@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>动态表格</title>
+    <style>
+      table {
+        border: 1px solid;
+        margin: auto;
+        width: 500px;
+      }
+      td,
+      th {
+        text-align: center;
+        border: 1px solid;
+      }
+      div {
+        text-align: center;
+        margin: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input type="text" name="" id="id" placeholder="请输入学号" />
+      <input type="text" name="" id="name" placeholder="请输入姓名" />
+      <input type="text" name="" id="gender" placeholder="请输入性别" />
+      <input type="button" value="添加" id="btn_add" />
+    </div>
+
+    <table>
+      <caption>
+        学生信息表
+      </caption>
+      <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>操作</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>rick</td>
+        <td>male</td>
+        <td><a href="javascript:;" onclick="delTr(this)">delete</a></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>morty</td>
+        <td>male</td>
+        <td><a href="javascript:;" onclick="delTr(this)">delete</a></td>
+      </tr>
+    </table>
+
+    <script>
+      // 获取按钮
+      var add = (document.getElementById("btn_add").onclick = function() {
+        // 获取文本内容
+        var id = document.getElementById("id").value;
+        var name = document.getElementById("name").value;
+        var gender = document.getElementById("gender").value;
+        // 创建tr
+        var tr = document.createElement("tr");
+        // 创建td,赋值td的标签体
+        // id的td
+        var td_id = document.createElement("td");
+        var text_id = document.createTextNode(id);
+        td_id.appendChild(text_id);
+        // 创建name的td
+        var td_name = document.createElement("td");
+        var text_name = document.createTextNode(name);
+        td_name.appendChild(text_name);
+        // 创建gender的td
+        var td_gender = document.createElement("td");
+        var text_genter = document.createTextNode(gender);
+        td_gender.appendChild(text_genter);
+        // 创建操作的td
+        var td_work = document.createElement("td");
+        var ele_work = document.createElement("a");
+        var text_work = document.createTextNode("delete");
+        ele_work.setAttribute("href", "javascript:;");
+        ele_work.setAttribute("onclick", "delTr(this)");
+        ele_work.appendChild(text_work);
+        td_work.appendChild(ele_work);
+        // 添加td添加到tr中
+        tr.appendChild(td_id);
+        tr.appendChild(td_name);
+        tr.appendChild(td_gender);
+        tr.appendChild(td_work);
+        // 获取table
+        var table = document.getElementsByTagName("table")[0];
+        table.appendChild(tr);
+      });
+      function delTr(obj) {
+        var table = obj.parentNode.parentNode.parentNode;
+        var tr = obj.parentNode.parentNode;
+        table.removeChild(tr);
+      }
+    </script>
+  </body>
+</html>

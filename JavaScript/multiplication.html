@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>乘法表</title>
-    <style>
-        td{border: 1px solid;}
-    </style>
+    <style></style>
     <script>
-        
-        document.write('<table align="center">')
-        for(var i = 1;i < 10;i++){
-            document.write('<tr>')
-            for(var j = 1;j <= i;j++){
-                document.write('<td>')
-                document.write(j + ' * ' + i + ' = ' + i * j)
-                document.write('</td>')
-            }
-            document.write('</tr>')
+      document.write('<table align="center">');
+      for (var i = 1; i < 10; i++) {
+        document.write("<tr>");
+        for (var j = 1; j <= i; j++) {
+          document.write("<td>");
+          document.write(j + " * " + i + " = " + i * j);
+          document.write("</td>");
         }
-        document.write('</table>')
-        var test = document.getElementsByTagName('td')
+        document.write("</tr>");
+      }
+      document.write("</table>");
+      var test = document.getElementsByTagName("td");
+      test.onclick = function() {
+        style;
+      };
     </script>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body></body>
 </html>

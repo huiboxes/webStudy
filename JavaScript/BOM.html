@@ -1,0 +1,34 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOM</title>
+  </head>
+  <body>
+    <input type="button" value="刷新" id="refresh" />
+    <input type="button" value="去百度" id="baidu">
+    <input type="button" value="获取历史记录个数" id="his">
+    <script>
+      var refresh = document.getElementById("refresh")
+      refresh.onclick = function(){
+          location.reload()
+      }
+      var baidu = document.getElementById("baidu")
+      baidu.onclick = function(){
+          location.href = "http://www.baidu.com"
+      }
+      // History：历史记录对象 
+      // 获取当前窗口历史记录个数
+      // 创建获取：
+      // back   forward   go
+      var his = document.getElementById('his')
+      his.onclick = function(){
+        var length = history.length
+        alert(length)
+      }
+    </script>
+  </body>
+</html>
