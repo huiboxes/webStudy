@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        background-color: skyblue;
+      }
+      .main {
+        background-color: #fff;
+      }
+      .error{
+          color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#" method="get" id="form">
+        <input type="text" name="" id="username" placeholder="用户名"><span id="s_username"></span><br>
+        <input type="submit" value="注册">
+    </form>
+    </div>
+    <script>
+        // 绑定表单onsubmit事件
+        document.getElementById("form").onsubmit = function(){
+            return checkUsername()
+        }
+        document.getElementById("username").onblur = checkUsername
+        // 校验用户名
+        function checkUsername(){
+            var username = document.getElementById("username").value
+            var reg_username = /^\w{6,12}$/
+            var flag = reg_username.test(username)
+            var s_username = document.getElementById("s_username")
+            if(flag){
+                s_username.innerHTML = "可行"
+                s_username.classList.remove("error")
+            }else{
+                s_username.innerHTML = "格式有误"
+                s_username.className = "error"
+            }
+            return flag
+        }
+    </script>
+  </body>
+</html>

@@ -15,16 +15,53 @@
       /*
         常见的事件
         1、点击事件     onclick单击事件  ondblclick双击事件
-        2、焦点事件     onblur失去焦点   onfocus元素获得焦点
+        2、焦点事件     onblur失去焦点   onfocus元素获得焦点   一般用于表单校验
         3、加载事件     onload  页面或者图片加载完成
         4、鼠标事件     onmousedown  onmouseup   onmousemove onmouseover  onmouseout
         5、键盘事件     onkeydown    onkeyup   oonkeyperss
         6、选中和改变   onchange     onselect
-        7、表单事件     onsubmit    onreset
+        7、表单事件     onsubmit    onreset  可以阻止表单提交
         */
     </script>
   </head>
   <body>
-    <input type="text" />
+    <form action="#" id="form">
+      <input type="text" id="username" />
+      <select name="" id="city">
+        <option value="">请选择</option>
+        <option value="">北京</option>
+        <option value="">上海</option>
+        <option value="">成都</option>
+        <input type="submit" value="提交" />
+      </select>
+    </form>
+    <script>
+      var test = document.getElementById("username");
+      test.onblur = function() {
+        //  alert("lost")
+      };
+      test.onmouseover = function() {
+        //  alert("over")
+      };
+      test.onmousedown = function() {
+        //  alert("down")
+      };
+      test.onkeydown = function(event) {
+        //  alert(event.keyCode)
+      };
+      test.onchange = function() {
+        //  alert("change")
+      };
+      var city = document.getElementById("city");
+      city.onchange = function() {
+        alert("change");
+      };
+      var form = document.getElementById("form");
+      form.onsubmit = function() {
+        // 检验用户名格式是否正确
+        var flag = false;
+        return flag;
+      };
+    </script>
   </body>
 </html>
