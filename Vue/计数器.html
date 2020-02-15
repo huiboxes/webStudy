@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue计数器</title>
+    <script src="https://cdn.staticfile.org/vue/2.6.11/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div id="input-num">
+        <button @click="sub">-</button>
+        <span>{{num}}</span>
+        <button @click="add">+</button>
+      </div>
+    </div>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          num: 1
+        },
+        methods: {
+          add: function() {
+            if (this.num < 10) {
+              this.num++;
+            }
+          },
+          sub: function() {
+            if (this.num > 0) {
+              this.num--;
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
