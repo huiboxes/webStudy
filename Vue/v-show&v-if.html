@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>v-show</title>
+    <script src="https://cdn.staticfile.org/vue/2.6.11/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <img
+        v-show="isShow"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFMzrzYF8QcMv3Gpqp-LsHVPkUkwRIpB4VB2m6IMHg9JdonG4B&s"
+        alt=""
+      />
+      <button @click="changeIsShow">切换图片状态</button>
+      <img
+        v-show="isShow"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFMzrzYF8QcMv3Gpqp-LsHVPkUkwRIpB4VB2m6IMHg9JdonG4B&s"
+        alt=""
+      />
+      <button @click="changeIsShow">切换图片状态2</button>
+    </div>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          isShow: false
+        },
+        methods: {
+          changeIsShow: function() {
+            this.isShow = !this.isShow;
+          }
+        }
+      });
+      // 修改元素的display   数据改变后元素会同步更新
+      var app = new Vue({
+        el
+      });
+    </script>
+  </body>
+</html>
