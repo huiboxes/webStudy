@@ -36,7 +36,7 @@ var fileName = __dirname + '\\' + 'hello.txt'
 
 fs.readFile(fileName, 'utf8', (err, data) => {
     if (err) {
-        throw err
+        throw err       //抛出异常后后面的代码都不会执行
     }
     // data参数的数据类型是一个Buffer对象，里面保存的就是一个一个的字节（理解为字节数组）
     // 把Buffer对象转换为一字符串，调用toString（）方法
