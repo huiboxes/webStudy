@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>slideshow</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .window {
+        width: 533px;
+        overflow: hidden;
+      }
+      .images {
+        display: flex;
+        transition: transform 0.5s;
+      }
+      .images > img {
+        flex-shrink: 0;
+      }
+      .red {
+        color: red;
+      }
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="window">
+      <div class="images" id="images">
+        <img src="./0.jpg" alt="图片1" width="533" />
+        <img src="./1.jpg" alt="图片2" width="533" />
+        <img src="./2.jpg" alt="图片3" />
+      </div>
+    </div>
+    <span id="buttons">
+      <span>第1张</span>
+      <span>第2张</span>
+      <span>第3张</span>
+    </span>
+    <script>
+      var allButtons = $("#buttons > span");
+      for (let i = 0; i < allButtons.length; i++) {
+        $(allButtons[i]).on("click", function(x) {
+          var index = $(x.currentTarget).index();
+          var n = -533 * index;
+          $("#images").css({
+            transform: "translateX(" + n + "px)"
+          });
+          n = index;
+          activeButton(allButtons.eq(n));
+        });
+      }
+
+      var n = 0;
+      var size = allButtons.length;
+      playSlide(n % size);
+      var timerId = setTimer();
+
+      $(".window").on("mouseenter", function() {
+        window.clearInterval(timerId);
+      });
+      $(".window").on("mouseleave", function() {
+        timerId = setTimer();
+      });
+
+      function setTimer() {
+        return setInterval(() => {
+          n++;
+          playSlide(n % size);
+        }, 1000);
+      }
+
+      function activeButton($button) {
+        $button
+          .addClass("red")
+          .siblings(".red")
+          .removeClass("red");
+      }
+
+      function playSlide(index) {
+        allButtons.eq(index).trigger("click");
+      }
+    </script>
+  </body>
+</html>
