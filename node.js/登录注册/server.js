@@ -1,6 +1,6 @@
 const http = require('http')
 const url = require('url')
-const querstring = require('querystring')
+const querystring = require('querystring')
 const fs = require('fs')
 
 let user = {
@@ -26,7 +26,7 @@ http.createServer((req, res) => {
         req.on('end', () => {
             let buffer = Buffer.concat(arr)
 
-            post = querstring.parse(buffer)
+            post = querystring.parse(buffer)
             complete()
         })
     }
