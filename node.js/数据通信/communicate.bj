@@ -1,0 +1,30 @@
+fetch——原生、XHR
+1、读取
+2、解析
+
+
+jsonp
+动态创建a标签、form标签、link、script来发送请求的方式统称jsonp
+
+
+ajax2.0
+formData
+
+webSocket(基于HTTP)
+1、性能高(无需对数据进行转换)
+2、双向
+
+socket.io(直接跨域、自动重连)
+1、简单、方便
+2、兼容IE5
+3、自动数据解析
+
+原生websocket
+ws://
+wss://  (安全)
+Sec-webSocket-Key   认证Key(回复一个Ws报文)
+Upgrade             申请升级
+
+key => http的头里
+uuid
+key+uuid => base64(sha1(key+uuid))

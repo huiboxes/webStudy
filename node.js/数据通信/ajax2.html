@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+			div{
+				box-sizing: border-box;
+			}
+		</style>
+</head>
+<body>
+    <form action="http://localhost:5500" method="post">
+			用户：<input type="text" name="user"><br>
+			密码：<input type="password" name="pass"><br>
+			<input type="submit" value="提交">
+		</form>
+		
+		<script>
+			let oForm=document.querySelector('#form1')
+			oForm.onsubmit = function(){
+				let formdata=new FormData(oForm)
+
+				let xhr=new XMLHttpRequest()
+
+				xhr.open(oForm.method,oForm.action,true)
+				xhr.send(formdata)
+				
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState===4){
+						if(xhr.status >= 200 && xhr.status < 400){
+							alert('成功')
+						}else{
+							alert('失败')
+						}
+					}
+				}
+				return false
+			}
+		</script>
+</body>
+</html>

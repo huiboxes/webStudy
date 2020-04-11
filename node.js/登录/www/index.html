@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    用户：<input type="text" id="user"><br>
+    密码：<input type="password" id="pass"><br>
+    <input type="button" value="注册" id="btn1">
+    <input type="button" value="登录" id="btn2">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('#btn1').click(()=>{
+                $.ajax({
+                    url: '/reg',
+                    data: {
+                        username: $('#user').val(),
+                        password: $('#pass').val()
+                    },
+                    dataType: 'json'
+                }).then(json=>{
+                    if(json.error){
+                        alert(json.msg)
+                    }else{
+                        alert('注册成功')
+                    }
+                },err=>{
+                    alert('注册失败，请刷新重试')
+                })
+            })
+
+            $('#btn2').click(()=>{
+                $.ajax({
+                    url: '/login',
+                    data: {
+                        username: $('#user').val(),
+                        password: $('#pass').val()
+                    },
+                    dataType: 'json'
+                }).then(json=>{
+                    if(json.error){
+                        alert(json.msg)
+                    }else{
+                        alert('登录成功')
+                    }
+                },err=>{
+                    alert('登录失败，请刷新重试')
+                })
+            })
+        })
+
+    </script>
+    
+</body>
+</html>
