@@ -1,0 +1,56 @@
+express：回调
+KOA：
+V1 generator
+V2 async/await
+
+express：
+server.get('/a')
+server.post('/a')
+
+koa不带路由
+koa-router
+
+get、post、all
+
+嵌套路由：
+/user
+  /company
+  /admin
+/news
+  /woman
+  /sport
+/cart
+
+router.get('') 请求根   router.get('*') 请求任何路径
+
+路由：
+1、嵌套
+2、参数 (http://www.sohu.com/news/23245987)
+
+urlencoded  http://aaa.com/user?a=12&b=5  顺序灵活 可省略（不利于SEO）
+params     http://aaa.com/user/12/5      不灵活   不可（利于SEO）
+
+server.context：相当于ctx的prototype
+
+ctx.request
+ctx.response
+
+ctx.params(参数)
+ctx.query(get数据)
+ctx.method(请求方法)
+ctx.url(请求地址)
+ctx.ip(客户端IP)
+ctx.headers(请求头)
+ctx.state=305
+ctx.redirect('')重定向到另一个地址
+ctx.attachment('')帮用户下载文件
+
+ctx.throw(404,'error')   报错并且退出
+ctx.assert(条件,code,msg)==if(条件){ctx.throw(code,msg)}
+
+koa-static
+
+koa-better-body
+koa.request.fields
+
+cookie是自带的
