@@ -5,7 +5,6 @@ function parseHeader(str) {
     let arr = str.split('\r\n').filter(line => line)
     arr.shift()
 
-    console.log(arr)
     let headers = {}
 
     arr.forEach(line => {
@@ -20,7 +19,6 @@ function parseHeader(str) {
 }
 
 let server = net.createServer(sock => {
-    console.log('有人连接')
 
     sock.once('data', buffer => {
         let str = buffer.toString()
@@ -43,7 +41,6 @@ let server = net.createServer(sock => {
     })
 
     sock.on('end', () => {
-        console.log('已断开')
     })
 })
 server.listen(8080)
